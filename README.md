@@ -5,10 +5,8 @@
 ## ScreenShots
 
 <p align='center'>
-<img src='https://user-images.githubusercontent.com/52014318/124626624-38b67480-de55-11eb-89d7-b8a5b9e8adea.png' width='270'/>
+<img src='https://user-images.githubusercontent.com/52014318/136725728-0cb9354d-59fa-4263-92df-0d678649cf3f.png' width='375'/>
 </p>
-
-## Install
 
     $ git clone https://github.com/ORG/PROJECT.git
     $ cd PROJECT
