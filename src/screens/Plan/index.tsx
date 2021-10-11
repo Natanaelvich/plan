@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import { View, Text, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 import { Input } from '../../components/Input';
@@ -8,22 +8,20 @@ import { Button } from '../../components/Button';
 import { PlanInfo, PlanInfoProps } from '../../components/PlanInfo';
 
 import { styles } from './styles';
+import { ReducerPlan } from './reducer';
+
+const initialState = { plan: { name: "Basic", value: "5.25" } };
 
 export function Plan() {
-  const [plan, setPlan] = useState<PlanInfoProps>({ name: 'Basic', value: '5.25' });
+  const [state, dispatch] = useReducer(ReducerPlan, initialState);
   const [emailSent, setEmailSent] = useState(false);
 
+  console.log(state)
   function handleChangePlan(plan: string) {
     if (plan === 'basic') {
-      setPlan({
-        name: 'Basic',
-        value: '5.25'
-      });
+        dispatch({type: 'PLAN_BASIC'})
     } else {
-      setPlan({
-        name: 'Premium',
-        value: '6.99'
-      });
+        dispatch({type: 'PLAN_PREMIUM'})
     }
   }
 
@@ -37,20 +35,20 @@ export function Plan() {
         <Header />
 
         <PlanInfo
-          name={plan.name}
-          value={plan.value}
+          name={state.plan.name}
+          value={state.plan.value}
         />
 
         <View style={styles.options}>
           <Option
             title="Premium"
-            active={plan.name === 'Premium'}
+            active={state.plan.name === 'Premium'}
             onPress={() => handleChangePlan('premium')}
             testID="option-premium"
           />
           <Option
             title="Basic"
-            active={plan.name === 'Basic'}
+            active={state.plan.name === 'Basic'}
             onPress={() => handleChangePlan('basic')}
           />
         </View>
