@@ -15,6 +15,10 @@
 ## Start & watch
 
     $ npm start
+    
+## Concepts
+
+- [useReducer](https://pt-br.reactjs.org/docs/hooks-reference.html#usereducer)
 
 ## Languages & tools
 
