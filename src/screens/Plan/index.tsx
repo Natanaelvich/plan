@@ -1,7 +1,14 @@
-import React, { useReducer } from "react";
-import { View, Text, TouchableWithoutFeedback, Keyboard } from "react-native";
+import React, {
+  LegacyRef,
+  Ref,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
+import { View, Text, TouchableWithoutFeedback, Keyboard, TextInput } from "react-native";
 
-import { Input } from "../../components/Input";
+import Input from "../../components/Input";
 import { Header } from "../../components/Header";
 import { Option } from "../../components/Option";
 import { Button } from "../../components/Button";
@@ -16,7 +23,10 @@ const initialState = {
 };
 
 export function Plan() {
+  const inputRef = useRef<TextInput>();
+
   const [state, dispatch] = useReducer(ReducerPlan, initialState);
+  const [inputReaded, setInputReaded] = useState(false);
 
   function handleChangePlan(plan: string) {
     if (plan === "basic") {
@@ -29,6 +39,12 @@ export function Plan() {
   function handleSubscribe() {
     dispatch({ type: "EMAIL_SENT_TRUE" });
   }
+
+  useEffect(() => {
+    if (inputReaded) {
+      inputRef.current?.focus();
+    }
+  }, [inputReaded]);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} testID="keyboard">
@@ -51,7 +67,12 @@ export function Plan() {
           />
         </View>
 
-        <Input placeholder="your email" testID="input-email" />
+        <Input
+          ref={inputRef as any}
+          placeholder="your email"
+          testID="input-email"
+          onLayout={(event) => setInputReaded(!!event)}
+        />
 
         {state.emailSent && (
           <Text style={styles.confirmation} testID="confirmation-message">
