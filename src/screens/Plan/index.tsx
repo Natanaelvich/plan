@@ -18,7 +18,6 @@ const initialState = {
 export function Plan() {
   const [state, dispatch] = useReducer(ReducerPlan, initialState);
 
-  console.log(state);
   function handleChangePlan(plan: string) {
     if (plan === "basic") {
       dispatch({ type: "PLAN_BASIC" });
