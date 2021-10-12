@@ -19,6 +19,7 @@
 ## Concepts
 
 - [useReducer](https://pt-br.reactjs.org/docs/hooks-reference.html#usereducer)
+- [useImperativeHandle](https://pt-br.reactjs.org/docs/hooks-reference.html#useimperativehandle)
 
 ## Languages & tools
 
