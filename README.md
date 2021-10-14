@@ -20,15 +20,13 @@
 
 - [useReducer](https://pt-br.reactjs.org/docs/hooks-reference.html#usereducer)
 - [useImperativeHandle](https://pt-br.reactjs.org/docs/hooks-reference.html#useimperativehandle)
+- [Detox](https://github.com/wix/Detox)
 
 ## Languages & tools
 
 - [Expo](https://expo.io/) The fastest way to build an app.
-- [Eslint](https://eslint.org/) is used to prevent JavaScript error.
-- [Prettier](https://prettier.io/docs/en/index.html) is an opinionated code formatter.
 - [React Native](https://reactnative.dev/) React Native combines the best parts of native development with React, a best-in-class JavaScript library for building user interfaces.
 - [Typecript](https://www.typescriptlang.org/) TypeScript extends JavaScript by adding types.
-- [SocketIO](https://socket.io/) For Connection in real time.
 
 ## License
 
